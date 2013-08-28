@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
+#define $(...) ((NSString *)[NSString stringWithFormat:__VA_ARGS__,nil])
+
 #define BASE_URL @"https://api.parse.com/1/"
 
 @interface LFAPIClient : AFHTTPClient

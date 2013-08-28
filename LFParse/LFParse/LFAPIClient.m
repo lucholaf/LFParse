@@ -28,7 +28,6 @@
         [self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self setDefaultHeader:@"X-Parse-Application-Id" value:[LFBackend getApplicationId]];
 		[self setDefaultHeader:@"X-Parse-REST-API-Key" value:[LFBackend getClientKey]];
-        [self setParameterEncoding:AFJSONParameterEncoding];
         
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }

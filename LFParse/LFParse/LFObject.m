@@ -9,8 +9,6 @@
 #import "LFObject.h"
 #import "LFAPIClient.h"
 
-#define $(...) ((NSString *)[NSString stringWithFormat:__VA_ARGS__,nil])
-
 @implementation LFObject
 
 + (instancetype)objectWithClassName:(NSString *)className
@@ -58,6 +56,7 @@
 
 - (void)saveInBackgroundWithBlock:(LFBooleanResultBlock)block
 {
+    [[LFAPIClient sharedInstance] setParameterEncoding:AFJSONParameterEncoding];
     [[LFAPIClient sharedInstance] postPath:$(@"classes/%@", _className) parameters:_data
                                      success:^(AFHTTPRequestOperation *operation, id response) {
                                          block(YES, nil);

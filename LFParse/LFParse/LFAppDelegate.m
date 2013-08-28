@@ -22,11 +22,17 @@
     [LFBackend setApplicationId:APP_ID
                   clientKey:REST_KEY];
     
-    LFObject *test = [LFObject objectWithClassName:@"TestObject"];
-    test[@"someKey"] = @"someValue";
-    test[@"someKey2"] = @"someValue2";
-    [test saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        NSLog(@"object saved %@", error);
+//    LFObject *test = [LFObject objectWithClassName:@"TestObject"];
+//    test[@"someKey1"] = @"someValue5";
+//    test[@"someKey2"] = @"someValue6";
+//    [test saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        NSLog(@"object saved %@", error);
+//    }];
+    
+    LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
+    [query whereKey:@"someKey1" equalTo:@"someValue3"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"object found %@", error);
     }];
     
     return YES;
