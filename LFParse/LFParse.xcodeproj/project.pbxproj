@@ -16,9 +16,6 @@
 		E2BAE46917CE40DF001525ED /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E2BAE46817CE40DF001525ED /* Default.png */; };
 		E2BAE46B17CE40DF001525ED /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2BAE46A17CE40DF001525ED /* Default@2x.png */; };
 		E2BAE46D17CE40DF001525ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2BAE46C17CE40DF001525ED /* Default-568h@2x.png */; };
-		E2BAE47517CE40EE001525ED /* LFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE47417CE40EE001525ED /* LFObject.m */; };
-		E2BAE47817CE4147001525ED /* LFBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE47717CE4147001525ED /* LFBackend.m */; };
-		E2BAE47C17CE45FD001525ED /* LFAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE47B17CE45FD001525ED /* LFAPIClient.m */; };
 		E2BAE4B117CE4776001525ED /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE49F17CE4776001525ED /* AFHTTPClient.m */; };
 		E2BAE4B217CE4776001525ED /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4A117CE4776001525ED /* AFHTTPRequestOperation.m */; };
 		E2BAE4B317CE4776001525ED /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4A317CE4776001525ED /* AFImageRequestOperation.m */; };
@@ -32,7 +29,10 @@
 		E2BAE4BD17CE4940001525ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE4BC17CE4940001525ED /* Security.framework */; };
 		E2BAE4BF17CE5394001525ED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE4BE17CE5394001525ED /* SystemConfiguration.framework */; };
 		E2BAE4C117CE539A001525ED /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE4C017CE539A001525ED /* MobileCoreServices.framework */; };
-		E2BAE4C417CE577E001525ED /* LFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4C317CE577E001525ED /* LFQuery.m */; };
+		E2BAE4CE17CE7EE8001525ED /* LFAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4C717CE7EE8001525ED /* LFAPIClient.m */; };
+		E2BAE4CF17CE7EE8001525ED /* LFBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4C917CE7EE8001525ED /* LFBackend.m */; };
+		E2BAE4D017CE7EE8001525ED /* LFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4CB17CE7EE8001525ED /* LFObject.m */; };
+		E2BAE4D117CE7EE8001525ED /* LFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4CD17CE7EE8001525ED /* LFQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,13 +49,7 @@
 		E2BAE46817CE40DF001525ED /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E2BAE46A17CE40DF001525ED /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E2BAE46C17CE40DF001525ED /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		E2BAE47317CE40EE001525ED /* LFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFObject.h; sourceTree = "<group>"; };
-		E2BAE47417CE40EE001525ED /* LFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFObject.m; sourceTree = "<group>"; };
-		E2BAE47617CE4147001525ED /* LFBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFBackend.h; sourceTree = "<group>"; };
-		E2BAE47717CE4147001525ED /* LFBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFBackend.m; sourceTree = "<group>"; };
 		E2BAE47917CE4259001525ED /* keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keys.h; sourceTree = "<group>"; };
-		E2BAE47A17CE45FD001525ED /* LFAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAPIClient.h; sourceTree = "<group>"; };
-		E2BAE47B17CE45FD001525ED /* LFAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFAPIClient.m; sourceTree = "<group>"; };
 		E2BAE49E17CE4776001525ED /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		E2BAE49F17CE4776001525ED /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		E2BAE4A017CE4776001525ED /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -79,8 +73,14 @@
 		E2BAE4BC17CE4940001525ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E2BAE4BE17CE5394001525ED /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2BAE4C017CE539A001525ED /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		E2BAE4C217CE577E001525ED /* LFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFQuery.h; sourceTree = "<group>"; };
-		E2BAE4C317CE577E001525ED /* LFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFQuery.m; sourceTree = "<group>"; };
+		E2BAE4C617CE7EE8001525ED /* LFAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAPIClient.h; sourceTree = "<group>"; };
+		E2BAE4C717CE7EE8001525ED /* LFAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFAPIClient.m; sourceTree = "<group>"; };
+		E2BAE4C817CE7EE8001525ED /* LFBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFBackend.h; sourceTree = "<group>"; };
+		E2BAE4C917CE7EE8001525ED /* LFBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFBackend.m; sourceTree = "<group>"; };
+		E2BAE4CA17CE7EE8001525ED /* LFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFObject.h; sourceTree = "<group>"; };
+		E2BAE4CB17CE7EE8001525ED /* LFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFObject.m; sourceTree = "<group>"; };
+		E2BAE4CC17CE7EE8001525ED /* LFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFQuery.h; sourceTree = "<group>"; };
+		E2BAE4CD17CE7EE8001525ED /* LFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFQuery.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,19 +135,12 @@
 		E2BAE45C17CE40DF001525ED /* LFParse */ = {
 			isa = PBXGroup;
 			children = (
+				E2BAE4C517CE7EE8001525ED /* Classes */,
 				E2BAE45D17CE40DF001525ED /* Supporting Files */,
 				E2BAE47F17CE4714001525ED /* libs */,
 				E2BAE47917CE4259001525ED /* keys.h */,
 				E2BAE46517CE40DF001525ED /* LFAppDelegate.h */,
 				E2BAE46617CE40DF001525ED /* LFAppDelegate.m */,
-				E2BAE47317CE40EE001525ED /* LFObject.h */,
-				E2BAE47417CE40EE001525ED /* LFObject.m */,
-				E2BAE47617CE4147001525ED /* LFBackend.h */,
-				E2BAE47717CE4147001525ED /* LFBackend.m */,
-				E2BAE47A17CE45FD001525ED /* LFAPIClient.h */,
-				E2BAE47B17CE45FD001525ED /* LFAPIClient.m */,
-				E2BAE4C217CE577E001525ED /* LFQuery.h */,
-				E2BAE4C317CE577E001525ED /* LFQuery.m */,
 			);
 			path = LFParse;
 			sourceTree = "<group>";
@@ -199,6 +192,21 @@
 			);
 			name = AFNetworking;
 			path = libs/AFNetworking;
+			sourceTree = SOURCE_ROOT;
+		};
+		E2BAE4C517CE7EE8001525ED /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E2BAE4C617CE7EE8001525ED /* LFAPIClient.h */,
+				E2BAE4C717CE7EE8001525ED /* LFAPIClient.m */,
+				E2BAE4C817CE7EE8001525ED /* LFBackend.h */,
+				E2BAE4C917CE7EE8001525ED /* LFBackend.m */,
+				E2BAE4CA17CE7EE8001525ED /* LFObject.h */,
+				E2BAE4CB17CE7EE8001525ED /* LFObject.m */,
+				E2BAE4CC17CE7EE8001525ED /* LFQuery.h */,
+				E2BAE4CD17CE7EE8001525ED /* LFQuery.m */,
+			);
+			path = Classes;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -269,9 +277,6 @@
 			files = (
 				E2BAE46317CE40DF001525ED /* main.m in Sources */,
 				E2BAE46717CE40DF001525ED /* LFAppDelegate.m in Sources */,
-				E2BAE47517CE40EE001525ED /* LFObject.m in Sources */,
-				E2BAE47817CE4147001525ED /* LFBackend.m in Sources */,
-				E2BAE47C17CE45FD001525ED /* LFAPIClient.m in Sources */,
 				E2BAE4B117CE4776001525ED /* AFHTTPClient.m in Sources */,
 				E2BAE4B217CE4776001525ED /* AFHTTPRequestOperation.m in Sources */,
 				E2BAE4B317CE4776001525ED /* AFImageRequestOperation.m in Sources */,
@@ -281,7 +286,10 @@
 				E2BAE4B717CE4776001525ED /* AFURLConnectionOperation.m in Sources */,
 				E2BAE4B817CE4776001525ED /* AFXMLRequestOperation.m in Sources */,
 				E2BAE4B917CE4776001525ED /* UIImageView+AFNetworking.m in Sources */,
-				E2BAE4C417CE577E001525ED /* LFQuery.m in Sources */,
+				E2BAE4CE17CE7EE8001525ED /* LFAPIClient.m in Sources */,
+				E2BAE4CF17CE7EE8001525ED /* LFBackend.m in Sources */,
+				E2BAE4D017CE7EE8001525ED /* LFObject.m in Sources */,
+				E2BAE4D117CE7EE8001525ED /* LFQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +414,7 @@
 				E2BAE47217CE40DF001525ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
