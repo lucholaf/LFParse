@@ -59,10 +59,12 @@
     [[LFAPIClient sharedInstance] setParameterEncoding:AFJSONParameterEncoding];
     [[LFAPIClient sharedInstance] postPath:$(@"classes/%@", _className) parameters:_data
                                      success:^(AFHTTPRequestOperation *operation, id response) {
-                                         block(YES, nil);
+                                         if (block)
+                                             block(YES, nil);
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                         block(NO, error);
+                                         if (block)
+                                             block(NO, error);
                                      }];
 }
 
