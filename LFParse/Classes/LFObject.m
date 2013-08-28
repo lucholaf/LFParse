@@ -63,13 +63,18 @@
         {
             for (NSString *key in dictionary)
                 _data[key] = dictionary[key];
-            
-            self.objectId = dictionary[@"objectId"];
-            self.createdAt = [[LFObject formatter] dateFromString:dictionary[@"createdAt"]];
-            self.updatedAt = [[LFObject formatter] dateFromString:dictionary[@"updatedAt"]];
+
+            [self fillWithCreationData:dictionary];
         }
     }
     return self;
+}
+
+- (void)fillWithCreationData:(NSDictionary *)dictionary
+{
+    self.objectId = dictionary[@"objectId"];
+    self.createdAt = [[LFObject formatter] dateFromString:dictionary[@"createdAt"]];
+    self.updatedAt = [[LFObject formatter] dateFromString:dictionary[@"updatedAt"]];
 }
 
 - (id)objectForKeyedSubscript:(id)key
@@ -84,7 +89,14 @@
 
 - (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)key
 {
-    _data[key] = object;
+    if ([object isKindOfClass:[LFObject class]])
+    {
+        _data[key] = @{@"__type" : @"Pointer", @"className": [object className], @"objectId": [object objectId]};
+    }
+    else
+    {
+        _data[key] = object;        
+    }
 }
 
 - (void)setObject:(id)object forKey:(NSString *)key
@@ -97,6 +109,8 @@
     [[LFAPIClient sharedInstance] setParameterEncoding:AFJSONParameterEncoding];
     [[LFAPIClient sharedInstance] postPath:$(@"classes/%@", _className) parameters:_data
                                      success:^(AFHTTPRequestOperation *operation, id response) {
+                                         [self fillWithCreationData:response];
+                                         
                                          if (block)
                                              block(YES, nil);
                                      }

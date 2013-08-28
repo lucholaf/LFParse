@@ -33,6 +33,8 @@ typedef void (^LFBooleanResultBlock)(BOOL succeeded, NSError *error);
 @property (nonatomic, retain, readonly) NSDate *createdAt;
 
 
+@property (readonly) NSString *className;
+
 + (LFObject *)objectWithClassName:(NSString *)className;
 + (LFObject *)objectWithClassName:(NSString *)className dictionary:(NSDictionary *)dictionary;
 

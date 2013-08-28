@@ -39,7 +39,14 @@
 
 - (void)whereKey:(NSString *)key equalTo:(id)object
 {
-    _wheres[key] = object;
+    if ([object isKindOfClass:[LFObject class]])
+    {
+        _wheres[key] = @{@"__type" : @"Pointer", @"className": [object className], @"objectId": [object objectId]};
+    }
+    else
+    {
+        _wheres[key] = object;
+    }
 }
 
 - (void)whereKey:(NSString *)key notEqualTo:(id)object
