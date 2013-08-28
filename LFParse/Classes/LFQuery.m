@@ -22,6 +22,7 @@
     if (self) {
         _wheres = [NSMutableDictionary dictionary];
         _wheresNot = [NSMutableDictionary dictionary];
+        _order = @"";
     }
     return self;
 }
@@ -45,6 +46,21 @@
     _wheresNot[key] = @{@"$ne": object};
 }
 
+- (void)whereKey:(NSString *)key greaterThan:(id)object
+{
+    _wheresNot[key] = @{@"$gt": object};    
+}
+
+- (void)orderByAscending:(NSString *)key
+{
+    _order = key;
+}
+
+- (void)orderByDescending:(NSString *)key
+{
+    _order = $(@"-%@", key);
+}
+
 - (void)findObjectsInBackgroundWithBlock:(LFArrayResultBlock)block
 {
     NSMutableDictionary *totalDict = [NSMutableDictionary dictionary];
@@ -58,7 +74,9 @@
     NSString *data = $(@"where=%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     NSString *encodedData = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
-    [[LFAPIClient sharedInstance] getPath:$(@"classes/%@?%@", _className, encodedData) parameters:nil
+    NSString *orderData = $(@"order=%@", _order);
+    
+    [[LFAPIClient sharedInstance] getPath:$(@"classes/%@?%@&%@", _className, encodedData, orderData) parameters:nil
                                    success:^(AFHTTPRequestOperation *operation, id response) {
                                        block(response[@"results"], nil);
                                    }

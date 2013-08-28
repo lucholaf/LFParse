@@ -17,6 +17,22 @@ typedef void (^LFBooleanResultBlock)(BOOL succeeded, NSError *error);
     NSString *_className;
 }
 
+/*!
+ The id of the object.
+ */
+@property (nonatomic, retain) NSString *objectId;
+
+/*!
+ When the object was last updated.
+ */
+@property (nonatomic, retain, readonly) NSDate *updatedAt;
+
+/*!
+ When the object was created.
+ */
+@property (nonatomic, retain, readonly) NSDate *createdAt;
+
+
 + (instancetype)objectWithClassName:(NSString *)className;
 
 - (id)initWithClassName:(NSString *)newClassName;

@@ -15,6 +15,8 @@ typedef void (^LFArrayResultBlock)(NSArray *objects, NSError *error);
     NSString *_className;
     NSMutableDictionary *_wheres;
     NSMutableDictionary *_wheresNot;
+    
+    NSString *_order;
 }
 
 + (LFQuery *)queryWithClassName:(NSString *)className;
@@ -22,6 +24,10 @@ typedef void (^LFArrayResultBlock)(NSArray *objects, NSError *error);
 
 - (void)whereKey:(NSString *)key equalTo:(id)object;
 - (void)whereKey:(NSString *)key notEqualTo:(id)object;
+- (void)whereKey:(NSString *)key greaterThan:(id)object;
+
+- (void)orderByAscending:(NSString *)key;
+- (void)orderByDescending:(NSString *)key;
 
 - (void)findObjectsInBackgroundWithBlock:(LFArrayResultBlock)block;
 

@@ -30,7 +30,8 @@
 //    }];
     
     LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
-    [query whereKey:@"someKey1" equalTo:@"someValue5"];
+//    [query whereKey:@"someKey1" equalTo:@"someValue5"];
+    [query orderByDescending:@"someKey1"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSLog(@"object found %@", error);
     }];
