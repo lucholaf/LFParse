@@ -42,12 +42,19 @@
 
 - (void)whereKey:(NSString *)key notEqualTo:(id)object
 {
-    _wheresNot[key] = object;
+    _wheresNot[key] = @{@"$ne": object};
 }
 
 - (void)findObjectsInBackgroundWithBlock:(LFArrayResultBlock)block
 {
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:_wheres options:0 error:nil];
+    NSMutableDictionary *totalDict = [NSMutableDictionary dictionary];
+    NSArray *dicts = @[_wheres, _wheresNot];
+    
+    for (NSDictionary *dict in dicts)
+        for (NSString *key in dict)
+            totalDict[key] = dict[key];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:totalDict options:0 error:nil];
     NSString *data = $(@"where=%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     NSString *encodedData = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
