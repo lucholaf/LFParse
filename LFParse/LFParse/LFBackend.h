@@ -15,5 +15,7 @@
 }
 
 + (void)setApplicationId:(NSString *)applicationId clientKey:(NSString *)clientKey;
++ (NSString *)getApplicationId;
++ (NSString *)getClientKey;
 
 @end

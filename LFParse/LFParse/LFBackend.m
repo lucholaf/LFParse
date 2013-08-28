@@ -14,9 +14,19 @@ static NSString *clientKeyLF;
 @implementation LFBackend
 
 + (void)setApplicationId:(NSString *)applicationId clientKey:(NSString *)clientKey
-{
+{    
     applicationIdLF = applicationId;
     clientKeyLF = clientKey;
+}
+
++ (NSString *)getApplicationId
+{
+    return applicationIdLF;
+}
+
++ (NSString *)getClientKey
+{
+    return clientKeyLF;
 }
 
 @end
