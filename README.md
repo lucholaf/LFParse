@@ -8,5 +8,7 @@ Build
 
 add a keys.h file to the project with this template and fill it with real keys:
 
+```
 #define APP_ID @"..."
 #define CLIENT_KEY @"..."
+```
