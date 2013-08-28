@@ -38,6 +38,10 @@ typedef void (^LFBooleanResultBlock)(BOOL succeeded, NSError *error);
 + (LFObject *)objectWithClassName:(NSString *)className;
 + (LFObject *)objectWithClassName:(NSString *)className dictionary:(NSDictionary *)dictionary;
 
++ (id)formatObjectForStore:(id)object;
+
++ (NSDateFormatter *)formatter;
+
 - (id)initWithClassName:(NSString *)newClassName dictionary:(NSDictionary *)dictionary;
 
 - (id)objectForKeyedSubscript:(id)key;

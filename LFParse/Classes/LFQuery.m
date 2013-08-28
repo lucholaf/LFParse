@@ -39,24 +39,22 @@
 
 - (void)whereKey:(NSString *)key equalTo:(id)object
 {
-    if ([object isKindOfClass:[LFObject class]])
-    {
-        _wheres[key] = @{@"__type" : @"Pointer", @"className": [object className], @"objectId": [object objectId]};
-    }
-    else
-    {
-        _wheres[key] = object;
-    }
+    _wheres[key] = [LFObject formatObjectForStore:object];
 }
 
 - (void)whereKey:(NSString *)key notEqualTo:(id)object
 {
-    _wheresNot[key] = @{@"$ne": object};
+    _wheresNot[key] = @{@"$ne": [LFObject formatObjectForStore:object]};
 }
 
 - (void)whereKey:(NSString *)key greaterThan:(id)object
 {
-    _wheresNot[key] = @{@"$gt": object};    
+    _wheresNot[key] = @{@"$gt": [LFObject formatObjectForStore:object]};
+}
+
+- (void)whereKey:(NSString *)key lessThan:(id)object
+{
+    _wheresNot[key] = @{@"$lt": [LFObject formatObjectForStore:object]};
 }
 
 - (void)orderByAscending:(NSString *)key

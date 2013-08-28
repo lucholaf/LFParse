@@ -77,6 +77,22 @@
     self.updatedAt = [[LFObject formatter] dateFromString:dictionary[@"updatedAt"]];
 }
 
++ (id)formatObjectForStore:(id)object
+{
+    if ([object isKindOfClass:[LFObject class]])
+    {
+        return @{@"__type" : @"Pointer", @"className": [object className], @"objectId": [object objectId]};
+    }
+    else if ([object isKindOfClass:[NSDate class]])
+    {
+        return @{@"__type" : @"Date", @"iso": [[LFObject formatter] stringFromDate:object]};
+    }
+    else
+    {
+        return object;
+    }
+}
+
 - (id)objectForKeyedSubscript:(id)key
 {
     id obj = _data[key];
@@ -104,14 +120,7 @@
 
 - (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)key
 {
-    if ([object isKindOfClass:[LFObject class]])
-    {
-        _data[key] = @{@"__type" : @"Pointer", @"className": [object className], @"objectId": [object objectId]};
-    }
-    else
-    {
-        _data[key] = object;        
-    }
+    _data[key] = [LFObject formatObjectForStore:object];
 }
 
 - (void)setObject:(id)object forKey:(NSString *)key

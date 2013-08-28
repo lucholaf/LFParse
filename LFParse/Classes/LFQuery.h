@@ -25,6 +25,7 @@ typedef void (^LFArrayResultBlock)(NSArray *objects, NSError *error);
 - (void)whereKey:(NSString *)key equalTo:(id)object;
 - (void)whereKey:(NSString *)key notEqualTo:(id)object;
 - (void)whereKey:(NSString *)key greaterThan:(id)object;
+- (void)whereKey:(NSString *)key lessThan:(id)object;
 
 - (void)orderByAscending:(NSString *)key;
 - (void)orderByDescending:(NSString *)key;
