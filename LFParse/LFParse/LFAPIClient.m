@@ -25,7 +25,6 @@
 - (id)initWithBaseURL:(NSURL *)url {
     self = [super initWithBaseURL:url];
     if (self) {
-        //custom settings
         [self setDefaultHeader:@"Accept" value:@"application/json"];
 		[self setDefaultHeader:@"X-Parse-Application-Id" value:[LFBackend getApplicationId]];
 		[self setDefaultHeader:@"X-Parse-REST-API-Key" value:[LFBackend getClientKey]];

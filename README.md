@@ -12,5 +12,5 @@ Build
 
 ```
 #define APP_ID @"..."
-#define CLIENT_KEY @"..."
+#define REST_KEY @"..."
 ```

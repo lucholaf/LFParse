@@ -20,7 +20,14 @@
     [self.window makeKeyAndVisible];
     
     [LFBackend setApplicationId:APP_ID
-                  clientKey:CLIENT_KEY];
+                  clientKey:REST_KEY];
+    
+    LFObject *test = [LFObject objectWithClassName:@"TestObject"];
+    test[@"someKey"] = @"someValue";
+    test[@"someKey2"] = @"someValue2";
+    [test saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"object saved %@", error);
+    }];
     
     return YES;
 }
