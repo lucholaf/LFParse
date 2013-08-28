@@ -14,12 +14,14 @@ typedef void (^LFArrayResultBlock)(NSArray *objects, NSError *error);
 {
     NSString *_className;
     NSMutableDictionary *_wheres;
+    NSMutableDictionary *_wheresNot;
 }
 
 + (LFQuery *)queryWithClassName:(NSString *)className;
 - (id)initWithClassName:(NSString *)newClassName;
 
 - (void)whereKey:(NSString *)key equalTo:(id)object;
+- (void)whereKey:(NSString *)key notEqualTo:(id)object;
 
 - (void)findObjectsInBackgroundWithBlock:(LFArrayResultBlock)block;
 

@@ -21,6 +21,7 @@
     self = [super init];
     if (self) {
         _wheres = [NSMutableDictionary dictionary];
+        _wheresNot = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -39,9 +40,15 @@
     _wheres[key] = object;
 }
 
+- (void)whereKey:(NSString *)key notEqualTo:(id)object
+{
+    _wheresNot[key] = object;
+}
+
 - (void)findObjectsInBackgroundWithBlock:(LFArrayResultBlock)block
 {
-    NSString *data = @"where={\"someKey1\":\"someValue3\"}";
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:_wheres options:0 error:nil];
+    NSString *data = $(@"where=%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     NSString *encodedData = [data stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
     [[LFAPIClient sharedInstance] getPath:$(@"classes/%@?%@", _className, encodedData) parameters:nil
