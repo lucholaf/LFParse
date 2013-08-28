@@ -1,7 +1,7 @@
 LFParse
 =======
 
-iOS library to interact with the parse.com REST services, could be useful in case you want to change the backend in the future.
+iOS library to interact with the parse.com REST services, could be useful in case you want to change the backend in the future. I'm trying to keep it API consistent with current Parse SDK, so ideally a refactoring of PF* to LF* should make the migration.
 
 Build
 -----
