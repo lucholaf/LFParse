@@ -7,6 +7,7 @@
 //
 
 #import "LFQuery.h"
+#import "LFObject.h"
 #import "LFAPIClient.h"
 
 @implementation LFQuery
@@ -22,7 +23,7 @@
     if (self) {
         _wheres = [NSMutableDictionary dictionary];
         _wheresNot = [NSMutableDictionary dictionary];
-        _order = @"";
+        _order = @"";        
     }
     return self;
 }
@@ -78,7 +79,13 @@
     
     [[LFAPIClient sharedInstance] getPath:$(@"classes/%@?%@&%@", _className, encodedData, orderData) parameters:nil
                                    success:^(AFHTTPRequestOperation *operation, id response) {
-                                       block(response[@"results"], nil);
+                                       NSMutableArray *objects = [NSMutableArray array];
+                                       for (NSDictionary *dict in response[@"results"])
+                                       {
+                                           LFObject *obj = [LFObject objectWithClassName:_className dictionary:dict];
+                                           [objects addObject:obj];
+                                       }
+                                       block(objects, nil);
                                    }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        block(nil, error);

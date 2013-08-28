@@ -33,7 +33,10 @@
 //    [query whereKey:@"someKey1" equalTo:@"someValue5"];
     [query orderByDescending:@"someKey1"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"object found %@", error);
+        for (LFObject *object in objects)
+        {
+            NSLog(@"object found %@ created at %@", object.objectId, object.createdAt);
+        }
     }];
     
     return YES;

@@ -33,9 +33,10 @@ typedef void (^LFBooleanResultBlock)(BOOL succeeded, NSError *error);
 @property (nonatomic, retain, readonly) NSDate *createdAt;
 
 
-+ (instancetype)objectWithClassName:(NSString *)className;
++ (LFObject *)objectWithClassName:(NSString *)className;
++ (LFObject *)objectWithClassName:(NSString *)className dictionary:(NSDictionary *)dictionary;
 
-- (id)initWithClassName:(NSString *)newClassName;
+- (id)initWithClassName:(NSString *)newClassName dictionary:(NSDictionary *)dictionary;
 
 - (id)objectForKeyedSubscript:(id)key;
 - (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)key;

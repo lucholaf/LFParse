@@ -16,7 +16,7 @@ typedef void (^LFArrayResultBlock)(NSArray *objects, NSError *error);
     NSMutableDictionary *_wheres;
     NSMutableDictionary *_wheresNot;
     
-    NSString *_order;
+    NSString *_order;    
 }
 
 + (LFQuery *)queryWithClassName:(NSString *)className;
