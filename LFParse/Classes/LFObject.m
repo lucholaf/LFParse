@@ -79,7 +79,22 @@
 
 - (id)objectForKeyedSubscript:(id)key
 {
-    return _data[key];
+    id obj = _data[key];
+    if ([obj isKindOfClass:[NSDictionary class]] && obj[@"__type"])
+    {
+        if ([obj[@"__type"] isEqualToString:@"Date"])
+        {
+            return [[LFObject formatter] dateFromString:obj[@"iso"]];
+        }
+        else
+        {
+            return [LFObject objectWithClassName:_className dictionary:obj];
+        }
+    }
+    else
+    {
+        return obj;
+    }
 }
 
 - (id)objectForKey:(NSString *)key
