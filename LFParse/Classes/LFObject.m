@@ -130,18 +130,32 @@
 
 - (void)saveInBackgroundWithBlock:(LFBooleanResultBlock)block
 {
+    void (^successBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id response) {
+        [self fillWithCreationData:response];
+        
+        if (block)
+            block(YES, nil);
+    };
+    
+    void (^failBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block)
+            block(NO, error);
+    };
+    
     [[LFAPIClient sharedInstance] setParameterEncoding:AFJSONParameterEncoding];
-    [[LFAPIClient sharedInstance] postPath:$(@"classes/%@", _className) parameters:_data
-                                     success:^(AFHTTPRequestOperation *operation, id response) {
-                                         [self fillWithCreationData:response];
-                                         
-                                         if (block)
-                                             block(YES, nil);
-                                     }
-                                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                         if (block)
-                                             block(NO, error);
-                                     }];
+    
+    if (self.objectId)
+    {
+        [[LFAPIClient sharedInstance] putPath:$(@"classes/%@/%@", _className, self.objectId) parameters:_data
+                                       success:successBlock
+                                       failure:failBlock];
+    }
+    else
+    {
+        [[LFAPIClient sharedInstance] postPath:$(@"classes/%@", _className) parameters:_data
+                                       success:successBlock
+                                       failure:failBlock];        
+    }
 }
 
 
