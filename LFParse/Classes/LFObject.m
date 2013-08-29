@@ -115,7 +115,7 @@
 
 - (id)objectForKey:(NSString *)key
 {
-    return _data[key];
+    return self[key];
 }
 
 - (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)key
@@ -125,7 +125,7 @@
 
 - (void)setObject:(id)object forKey:(NSString *)key
 {
-    _data[key] = object;
+    self[key] = object;
 }
 
 - (void)saveInBackgroundWithBlock:(LFBooleanResultBlock)block
