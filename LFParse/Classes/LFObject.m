@@ -72,9 +72,9 @@
 
 - (void)fillWithCreationData:(NSDictionary *)dictionary
 {
-    self.objectId = dictionary[@"objectId"];
-    self.createdAt = [[LFObject formatter] dateFromString:dictionary[@"createdAt"]];
-    self.updatedAt = [[LFObject formatter] dateFromString:dictionary[@"updatedAt"]];
+    if (dictionary[@"objectId"]) self.objectId = dictionary[@"objectId"];
+    if (dictionary[@"createdAt"]) self.createdAt = [[LFObject formatter] dateFromString:dictionary[@"createdAt"]];
+    if (dictionary[@"updatedAt"]) self.updatedAt = [[LFObject formatter] dateFromString:dictionary[@"updatedAt"]];
 }
 
 + (id)formatObjectForStore:(id)object
