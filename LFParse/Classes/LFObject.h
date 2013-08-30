@@ -51,5 +51,6 @@ typedef void (^LFBooleanResultBlock)(BOOL succeeded, NSError *error);
 - (id)objectForKey:(NSString *)key;
 
 - (void)saveInBackgroundWithBlock:(LFBooleanResultBlock)block;
+- (void)deleteInBackgroundWithBlock:(LFBooleanResultBlock)block;
 
 @end

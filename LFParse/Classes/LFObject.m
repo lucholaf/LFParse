@@ -128,6 +128,18 @@
     self[key] = object;
 }
 
+- (void)deleteInBackgroundWithBlock:(LFBooleanResultBlock)block
+{
+    [[LFAPIClient sharedInstance] deletePath:$(@"classes/%@/%@", _className, self.objectId) parameters:_data
+                                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                         if (block)
+                                             block(YES, nil);
+                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                         if (block)
+                                             block(NO, error);
+                                     }];
+}
+
 - (void)saveInBackgroundWithBlock:(LFBooleanResultBlock)block
 {
     void (^successBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id response) {

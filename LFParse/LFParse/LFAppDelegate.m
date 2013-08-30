@@ -20,48 +20,7 @@
     [self.window makeKeyAndVisible];
     
     [LFBackend setApplicationId:APP_ID
-                  clientKey:REST_KEY];
-    
-//    LFObject *test = [LFObject objectWithClassName:@"TestObject"];
-//    test[@"someKey1"] = @"someValue5";
-//    test[@"someKey2"] = @"someValue6";
-//    [test saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        NSLog(@"object saved %@", error);
-//    }];
-    
-    LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
-    [query whereKey:@"someKey1" equalTo:@"someValue5"];
-    [query orderByDescending:@"someKey1"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        for (LFObject *object in objects)
-        {
-            NSLog(@"object found %@ created at %@", object.objectId, object.createdAt);
-        }
-    }];
-    
-//    LFObject *test = [LFObject objectWithClassName:@"TestObject"];
-//    test[@"someKey1"] = @"2";
-//    [test saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        LFObject *linked = [LFObject objectWithClassName:@"LinkedObject"];
-//        linked[@"rel"] = test;
-//        [linked saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            NSLog(@"object saved %@", error);
-//        }];
-//    }];
-
-//    LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
-//    [query whereKey:@"someKey1" equalTo:@"1"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        LFObject *test = objects[0];
-//        
-//        LFQuery *linkedQuery = [LFQuery queryWithClassName:@"LinkedObject"];
-//        [linkedQuery whereKey:@"createAt" lessThan:test.createdAt];
-//        [linkedQuery whereKey:@"rel" equalTo:test];
-//        [linkedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//            NSLog(@"object fetched %@", objects[0]);
-//        }];
-//        
-//    }];
+                  clientKey:REST_KEY];    
     
     return YES;
 }

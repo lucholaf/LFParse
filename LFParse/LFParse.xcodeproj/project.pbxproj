@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E221B7BD17D1153400BD232C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E221B7BC17D1153400BD232C /* SenTestingKit.framework */; };
+		E221B7BE17D1153400BD232C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45617CE40DF001525ED /* UIKit.framework */; };
+		E221B7BF17D1153400BD232C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45817CE40DF001525ED /* Foundation.framework */; };
+		E221B7C517D1153400BD232C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E221B7C317D1153400BD232C /* InfoPlist.strings */; };
+		E221B7C817D1153400BD232C /* LFParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B7C717D1153400BD232C /* LFParseTests.m */; };
+		E221B7CD17D116BF00BD232C /* LFAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4C717CE7EE8001525ED /* LFAPIClient.m */; };
+		E221B7CE17D116BF00BD232C /* LFBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4C917CE7EE8001525ED /* LFBackend.m */; };
+		E221B7CF17D116BF00BD232C /* LFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4CB17CE7EE8001525ED /* LFObject.m */; };
+		E221B7D017D116BF00BD232C /* LFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4CD17CE7EE8001525ED /* LFQuery.m */; };
+		E221B7D117D116BF00BD232C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE49F17CE4776001525ED /* AFHTTPClient.m */; };
+		E221B7D217D116BF00BD232C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4A117CE4776001525ED /* AFHTTPRequestOperation.m */; };
+		E221B7D317D116BF00BD232C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4A317CE4776001525ED /* AFImageRequestOperation.m */; };
+		E221B7D417D116BF00BD232C /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4A517CE4776001525ED /* AFJSONRequestOperation.m */; };
+		E221B7D517D116BF00BD232C /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4A717CE4776001525ED /* AFNetworkActivityIndicatorManager.m */; };
+		E221B7D617D116BF00BD232C /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4AA17CE4776001525ED /* AFPropertyListRequestOperation.m */; };
+		E221B7D717D116BF00BD232C /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4AC17CE4776001525ED /* AFURLConnectionOperation.m */; };
+		E221B7D817D116BF00BD232C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4AE17CE4776001525ED /* AFXMLRequestOperation.m */; };
+		E221B7D917D116BF00BD232C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4B017CE4776001525ED /* UIImageView+AFNetworking.m */; };
+		E221B7DA17D116D900BD232C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45A17CE40DF001525ED /* CoreGraphics.framework */; };
+		E221B7DB17D116E500BD232C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE4BA17CE4934001525ED /* CFNetwork.framework */; };
+		E221B7DC17D116EF00BD232C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE4BC17CE4940001525ED /* Security.framework */; };
 		E2BAE45717CE40DF001525ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45617CE40DF001525ED /* UIKit.framework */; };
 		E2BAE45917CE40DF001525ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45817CE40DF001525ED /* Foundation.framework */; };
 		E2BAE45B17CE40DF001525ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45A17CE40DF001525ED /* CoreGraphics.framework */; };
@@ -36,6 +57,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E221B7BB17D1153400BD232C /* LFParseTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LFParseTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E221B7BC17D1153400BD232C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E221B7C217D1153400BD232C /* LFParseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LFParseTests-Info.plist"; sourceTree = "<group>"; };
+		E221B7C417D1153400BD232C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E221B7C617D1153400BD232C /* LFParseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFParseTests.h; sourceTree = "<group>"; };
+		E221B7C717D1153400BD232C /* LFParseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFParseTests.m; sourceTree = "<group>"; };
+		E221B7C917D1153400BD232C /* LFParseTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFParseTests-Prefix.pch"; sourceTree = "<group>"; };
 		E2BAE45317CE40DF001525ED /* LFParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BAE45617CE40DF001525ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E2BAE45817CE40DF001525ED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,6 +112,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E221B7B717D1153400BD232C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E221B7DC17D116EF00BD232C /* Security.framework in Frameworks */,
+				E221B7DB17D116E500BD232C /* CFNetwork.framework in Frameworks */,
+				E221B7DA17D116D900BD232C /* CoreGraphics.framework in Frameworks */,
+				E221B7BD17D1153400BD232C /* SenTestingKit.framework in Frameworks */,
+				E221B7BE17D1153400BD232C /* UIKit.framework in Frameworks */,
+				E221B7BF17D1153400BD232C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2BAE45017CE40DF001525ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,10 +142,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E221B7C017D1153400BD232C /* LFParseTests */ = {
+			isa = PBXGroup;
+			children = (
+				E221B7C617D1153400BD232C /* LFParseTests.h */,
+				E221B7C717D1153400BD232C /* LFParseTests.m */,
+				E221B7C117D1153400BD232C /* Supporting Files */,
+			);
+			path = LFParseTests;
+			sourceTree = "<group>";
+		};
+		E221B7C117D1153400BD232C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E221B7C217D1153400BD232C /* LFParseTests-Info.plist */,
+				E221B7C317D1153400BD232C /* InfoPlist.strings */,
+				E221B7C917D1153400BD232C /* LFParseTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		E2BAE44A17CE40DF001525ED = {
 			isa = PBXGroup;
 			children = (
 				E2BAE45C17CE40DF001525ED /* LFParse */,
+				E221B7C017D1153400BD232C /* LFParseTests */,
 				E2BAE45517CE40DF001525ED /* Frameworks */,
 				E2BAE45417CE40DF001525ED /* Products */,
 			);
@@ -114,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				E2BAE45317CE40DF001525ED /* LFParse.app */,
+				E221B7BB17D1153400BD232C /* LFParseTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +191,7 @@
 				E2BAE45617CE40DF001525ED /* UIKit.framework */,
 				E2BAE45817CE40DF001525ED /* Foundation.framework */,
 				E2BAE45A17CE40DF001525ED /* CoreGraphics.framework */,
+				E221B7BC17D1153400BD232C /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -212,6 +276,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E221B7BA17D1153400BD232C /* LFParseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E221B7CC17D1153400BD232C /* Build configuration list for PBXNativeTarget "LFParseTests" */;
+			buildPhases = (
+				E221B7B617D1153400BD232C /* Sources */,
+				E221B7B717D1153400BD232C /* Frameworks */,
+				E221B7B817D1153400BD232C /* Resources */,
+				E221B7B917D1153400BD232C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LFParseTests;
+			productName = LFParseTests;
+			productReference = E221B7BB17D1153400BD232C /* LFParseTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		E2BAE45217CE40DF001525ED /* LFParse */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2BAE47017CE40DF001525ED /* Build configuration list for PBXNativeTarget "LFParse" */;
@@ -252,11 +334,20 @@
 			projectRoot = "";
 			targets = (
 				E2BAE45217CE40DF001525ED /* LFParse */,
+				E221B7BA17D1153400BD232C /* LFParseTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E221B7B817D1153400BD232C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E221B7C517D1153400BD232C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2BAE45117CE40DF001525ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,7 +361,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E221B7B917D1153400BD232C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		E221B7B617D1153400BD232C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E221B7CD17D116BF00BD232C /* LFAPIClient.m in Sources */,
+				E221B7CE17D116BF00BD232C /* LFBackend.m in Sources */,
+				E221B7CF17D116BF00BD232C /* LFObject.m in Sources */,
+				E221B7D017D116BF00BD232C /* LFQuery.m in Sources */,
+				E221B7D117D116BF00BD232C /* AFHTTPClient.m in Sources */,
+				E221B7D217D116BF00BD232C /* AFHTTPRequestOperation.m in Sources */,
+				E221B7D317D116BF00BD232C /* AFImageRequestOperation.m in Sources */,
+				E221B7D417D116BF00BD232C /* AFJSONRequestOperation.m in Sources */,
+				E221B7D517D116BF00BD232C /* AFNetworkActivityIndicatorManager.m in Sources */,
+				E221B7D617D116BF00BD232C /* AFPropertyListRequestOperation.m in Sources */,
+				E221B7D717D116BF00BD232C /* AFURLConnectionOperation.m in Sources */,
+				E221B7D817D116BF00BD232C /* AFXMLRequestOperation.m in Sources */,
+				E221B7D917D116BF00BD232C /* UIImageView+AFNetworking.m in Sources */,
+				E221B7C817D1153400BD232C /* LFParseTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2BAE44F17CE40DF001525ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,6 +424,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E221B7C317D1153400BD232C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E221B7C417D1153400BD232C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		E2BAE45F17CE40DF001525ED /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -307,6 +443,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E221B7CA17D1153400BD232C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LFParseTests/LFParseTests-Prefix.pch";
+				INFOPLIST_FILE = "LFParseTests/LFParseTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E221B7CB17D1153400BD232C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LFParseTests/LFParseTests-Prefix.pch";
+				INFOPLIST_FILE = "LFParseTests/LFParseTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		E2BAE46E17CE40DF001525ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -398,6 +564,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E221B7CC17D1153400BD232C /* Build configuration list for PBXNativeTarget "LFParseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E221B7CA17D1153400BD232C /* Debug */,
+				E221B7CB17D1153400BD232C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E2BAE44E17CE40DF001525ED /* Build configuration list for PBXProject "LFParse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
