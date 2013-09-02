@@ -21,7 +21,7 @@ static BOOL _initialized;
 
 @implementation LFParseTests
 
-- (void)initTests
+- (void)clearObjects
 {
     [LFBackend setApplicationId:APP_ID
                       clientKey:REST_KEY];
@@ -74,7 +74,7 @@ static BOOL _initialized;
     [super setUp];
     
     if (!_initialized)
-        [self initTests];
+        [self clearObjects];
 }
 
 - (void)tearDown
@@ -135,24 +135,95 @@ static BOOL _initialized;
     WAIT_TEST;
 }
 
-- (void)testQuery
+- (void)createQueryObjects:(dispatch_block_t)done
+{
+    LFObject *test1 = [LFObject objectWithClassName:@"TestObject"];
+    test1[@"key1"] = @"1";
+    [test1 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        LFObject *test2 = [LFObject objectWithClassName:@"TestObject"];
+        test2[@"key1"] = @"2";
+        
+        [test2 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            LFObject *test3 = [LFObject objectWithClassName:@"TestObject"];
+            test3[@"key1"] = @"3";
+            
+            [test3 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                done();
+            }];
+        }];
+    }];
+}
+
+- (void)testBasicQuery
 {
     START_TEST;
 
-    LFObject *test1 = [LFObject objectWithClassName:@"TestObject"];
-    test1[@"key1"] = @"queryValue1";
-    [test1 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        LFObject *test2 = [LFObject objectWithClassName:@"TestObject"];
-        test2[@"key1"] = @"queryValue2";
+    [self clearObjects];
+    
+    [self createQueryObjects:^{
+        LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
+        [query whereKey:@"key1" equalTo:@"2"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            STAssertNil(error, nil);
+            STAssertTrue(1 == [objects count], nil);
+            END_TEST;
+        }];
+    }];    
+    
+    WAIT_TEST;
+}
 
-        [test2 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
-            [query whereKey:@"key1" equalTo:@"queryValue1"];
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                STAssertNil(error, nil);
-                STAssertTrue(1 == [objects count], nil);
-                END_TEST;
-            }];
+- (void)testWhereNEQuery
+{
+    START_TEST;
+    
+    [self clearObjects];
+
+    [self createQueryObjects:^{
+        LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
+        [query whereKey:@"key1" notEqualTo:@"2"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            STAssertNil(error, nil);
+            STAssertTrue(2 == [objects count], nil);
+            END_TEST;
+        }];
+    }];
+    
+    WAIT_TEST;
+}
+
+- (void)testWhereGTQuery
+{
+    START_TEST;
+    
+    [self clearObjects];
+    
+    [self createQueryObjects:^{
+        LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
+        [query whereKey:@"key1" greaterThan:@"1"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            STAssertNil(error, nil);
+            STAssertTrue(2 == [objects count], nil);
+            END_TEST;
+        }];
+    }];
+    
+    WAIT_TEST;
+}
+
+- (void)testWhereLTQuery
+{
+    START_TEST;
+    
+    [self clearObjects];
+    
+    [self createQueryObjects:^{
+        LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
+        [query whereKey:@"key1" lessThan:@"2"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            STAssertNil(error, nil);
+            STAssertTrue(1 == [objects count], nil);
+            END_TEST;
         }];
     }];
     
