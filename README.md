@@ -6,8 +6,9 @@ iOS library to interact with the parse.com REST services, could be useful in cas
 Build
 -----
 
-* clone and import AFNetworking.
-* add a keys.h file to the project with this template and fill it with real keys:
+* git submodule init
+* git submodule update
+* add a keys.h file to the project with this template and fill it with real parse.com keys. Pay attention that the key is the REST key and not the client key:
 
 ```
 #define APP_ID @"..."
