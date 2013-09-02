@@ -230,4 +230,25 @@ static BOOL _initialized;
     WAIT_TEST;
 }
 
+- (void)testSortQuery
+{
+    START_TEST;
+    
+    [self clearObjects];
+    
+    [self createQueryObjects:^{
+        LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
+        [query orderByDescending:@"key1"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            STAssertNil(error, nil);
+            STAssertTrue(3 == [objects[0][@"key1"] intValue], nil);
+            STAssertTrue(2 == [objects[1][@"key1"] intValue], nil);
+            STAssertTrue(1 == [objects[2][@"key1"] intValue], nil);
+            END_TEST;
+        }];
+    }];
+    
+    WAIT_TEST;
+}
+
 @end
