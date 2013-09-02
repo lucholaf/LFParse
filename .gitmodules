@@ -1,0 +1,3 @@
+[submodule "LFParse/libs/AFNetworking"]
+	path = LFParse/libs/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git
