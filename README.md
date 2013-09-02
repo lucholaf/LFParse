@@ -14,3 +14,8 @@ Build
 #define APP_ID @"..."
 #define REST_KEY @"..."
 ```
+
+Tests
+-----
+
+Use target LFParseTests to run the unit tests.
