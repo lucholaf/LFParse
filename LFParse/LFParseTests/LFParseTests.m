@@ -9,6 +9,7 @@
 #import "LFParseTests.h"
 #import "LFBackend.h"
 #import "keys.h"
+#import "LFAPIClient.h"
 
 typedef void (^deleteBlock)(NSString *class);
 
@@ -83,25 +84,6 @@ static BOOL _initialized;
     [super tearDown];
 }
 
-- (void)testCreateLinked
-{
-    START_TEST;
-    
-    LFObject *test = [LFObject objectWithClassName:@"TestObject"];
-    test[@"key1"] = @"someValueForLinked";
-    [test saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        LFObject *linked = [LFObject objectWithClassName:@"TestLinkedObject"];
-        linked[@"rel"] = test;
-        STAssertNil(error, nil);
-        [linked saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            STAssertNil(error, nil);
-            END_TEST;
-        }];
-    }];
-    
-    WAIT_TEST;
-}
-
 - (void)testCreateObject
 {
     START_TEST;
@@ -111,20 +93,11 @@ static BOOL _initialized;
     test[@"key2"] = @"val2";
     [test saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         STAssertNil(error, nil);
+        STAssertNotNil(test.objectId, nil);
         END_TEST;
     }];
 
     WAIT_TEST;
-    
-//    LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
-//    [query whereKey:@"someKey1" equalTo:@"someValue5"];
-//    [query orderByDescending:@"someKey1"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        for (LFObject *object in objects)
-//        {
-//            NSLog(@"object found %@ created at %@", object.objectId, object.createdAt);
-//        }
-//    }];
     
 //    LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
 //    [query whereKey:@"someKey1" equalTo:@"1"];
@@ -139,6 +112,51 @@ static BOOL _initialized;
 //        }];
 //        
 //    }];
+}
+
+- (void)testCreateLinked
+{
+    START_TEST;
+    
+    LFObject *test = [LFObject objectWithClassName:@"TestObject"];
+    test[@"key1"] = @"someValueForLinked";
+    [test saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        LFObject *linked = [LFObject objectWithClassName:@"TestLinkedObject"];
+        linked[@"rel"] = test;
+        STAssertNil(error, nil);
+        STAssertNotNil(test.objectId, nil);
+        [linked saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            STAssertNil(error, nil);
+            STAssertNotNil(linked.objectId, nil);
+            END_TEST;
+        }];
+    }];
+    
+    WAIT_TEST;
+}
+
+- (void)testQuery
+{
+    START_TEST;
+
+    LFObject *test1 = [LFObject objectWithClassName:@"TestObject"];
+    test1[@"key1"] = @"queryValue1";
+    [test1 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        LFObject *test2 = [LFObject objectWithClassName:@"TestObject"];
+        test2[@"key1"] = @"queryValue2";
+
+        [test2 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
+            [query whereKey:@"key1" equalTo:@"queryValue1"];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                STAssertNil(error, nil);
+                STAssertTrue(1 == [objects count], nil);
+                END_TEST;
+            }];
+        }];
+    }];
+    
+    WAIT_TEST;
 }
 
 @end
