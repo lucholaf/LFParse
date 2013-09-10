@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LFObject.h"
 #import "LFQuery.h"
+#import "LFUser.h"
 
 @interface LFBackend : NSObject
 {

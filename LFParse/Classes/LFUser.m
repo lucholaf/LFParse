@@ -11,6 +11,11 @@
 
 @implementation LFUser
 
++ (LFUser *)user
+{
+    return (LFUser *)[self objectWithClassName:@"_User"];
+}
+
 - (void)signUpInBackgroundWithBlock:(LFBooleanResultBlock)block
 {
     if (!self.username || !self.password)

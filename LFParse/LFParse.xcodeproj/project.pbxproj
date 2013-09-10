@@ -39,6 +39,8 @@
 		E232CA0E17D4E83100DDF736 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E232C9FC17D4E83100DDF736 /* UIImageView+AFNetworking.m */; };
 		E2870DB717DF5DDC00BA31C4 /* LFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E2870DB617DF5DDC00BA31C4 /* LFUser.m */; };
 		E2870DB817DF5DDC00BA31C4 /* LFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E2870DB617DF5DDC00BA31C4 /* LFUser.m */; };
+		E2870DB917DF66CC00BA31C4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE4BE17CE5394001525ED /* SystemConfiguration.framework */; };
+		E2870DBA17DF66D600BA31C4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE4C017CE539A001525ED /* MobileCoreServices.framework */; };
 		E2BAE45717CE40DF001525ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45617CE40DF001525ED /* UIKit.framework */; };
 		E2BAE45917CE40DF001525ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45817CE40DF001525ED /* Foundation.framework */; };
 		E2BAE45B17CE40DF001525ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45A17CE40DF001525ED /* CoreGraphics.framework */; };
@@ -120,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2870DBA17DF66D600BA31C4 /* MobileCoreServices.framework in Frameworks */,
+				E2870DB917DF66CC00BA31C4 /* SystemConfiguration.framework in Frameworks */,
 				E221B7DC17D116EF00BD232C /* Security.framework in Frameworks */,
 				E221B7DB17D116E500BD232C /* CFNetwork.framework in Frameworks */,
 				E221B7DA17D116D900BD232C /* CoreGraphics.framework in Frameworks */,

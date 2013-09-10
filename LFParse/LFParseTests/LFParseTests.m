@@ -21,7 +21,7 @@ static BOOL _initialized;
 
 @implementation LFParseTests
 
-- (void)clearObjects
+- (void)clearObjects:(NSArray *)classes
 {
     [LFBackend setApplicationId:APP_ID
                       clientKey:REST_KEY];
@@ -29,7 +29,7 @@ static BOOL _initialized;
     START_TEST;
     
     __block int ops = 0;
-    int totalOps = 2;
+    int totalOps = [classes count];
     
     deleteBlock delete = ^(NSString *class) {
         LFQuery *query = [LFQuery queryWithClassName:class];
@@ -61,12 +61,17 @@ static BOOL _initialized;
         }];
     };
     
-    delete(@"TestObject");
-    delete(@"TestLinkedObject");
+    for (NSString *class in classes)
+        delete(class);
     
     WAIT_TEST;
     
     _initialized = YES;
+}
+
+- (void)clearTestObjects
+{
+    [self clearObjects:@[@"TestObject", @"TestLinkedObject"]];
 }
 
 - (void)setUp
@@ -74,7 +79,7 @@ static BOOL _initialized;
     [super setUp];
     
     if (!_initialized)
-        [self clearObjects];
+        [self clearTestObjects];
 }
 
 - (void)tearDown
@@ -158,7 +163,7 @@ static BOOL _initialized;
 {
     START_TEST;
 
-    [self clearObjects];
+    [self clearTestObjects];
     
     [self createQueryObjects:^{
         LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
@@ -177,7 +182,7 @@ static BOOL _initialized;
 {
     START_TEST;
     
-    [self clearObjects];
+    [self clearTestObjects];
 
     [self createQueryObjects:^{
         LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
@@ -196,7 +201,7 @@ static BOOL _initialized;
 {
     START_TEST;
     
-    [self clearObjects];
+    [self clearTestObjects];
     
     [self createQueryObjects:^{
         LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
@@ -215,7 +220,7 @@ static BOOL _initialized;
 {
     START_TEST;
     
-    [self clearObjects];
+    [self clearTestObjects];
     
     [self createQueryObjects:^{
         LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
@@ -234,7 +239,7 @@ static BOOL _initialized;
 {
     START_TEST;
     
-    [self clearObjects];
+    [self clearTestObjects];
     
     [self createQueryObjects:^{
         LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
@@ -246,6 +251,33 @@ static BOOL _initialized;
             STAssertTrue(1 == [objects[2][@"key1"] intValue], nil);
             END_TEST;
         }];
+    }];
+    
+    WAIT_TEST;
+}
+
+- (NSString *)createNewUdid
+{
+    NSString *uuidString = nil;
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    if (uuid) {
+        uuidString = CFBridgingRelease(CFUUIDCreateString(NULL, uuid));
+        CFRelease(uuid);
+    }
+    return uuidString;
+}
+
+- (void)testUserCreation
+{
+    START_TEST;
+    
+    LFUser *user = [LFUser user];
+    user.username = $(@"testUser%@", [self createNewUdid]);
+    user.password = @"what?is?this";
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        STAssertNil(error, nil);
+        
+        END_TEST;
     }];
     
     WAIT_TEST;
