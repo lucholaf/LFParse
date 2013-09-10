@@ -37,6 +37,8 @@
 		E232CA0C17D4E83100DDF736 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E232C9FA17D4E83100DDF736 /* AFXMLRequestOperation.m */; };
 		E232CA0D17D4E83100DDF736 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E232C9FC17D4E83100DDF736 /* UIImageView+AFNetworking.m */; };
 		E232CA0E17D4E83100DDF736 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E232C9FC17D4E83100DDF736 /* UIImageView+AFNetworking.m */; };
+		E2870DB717DF5DDC00BA31C4 /* LFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E2870DB617DF5DDC00BA31C4 /* LFUser.m */; };
+		E2870DB817DF5DDC00BA31C4 /* LFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E2870DB617DF5DDC00BA31C4 /* LFUser.m */; };
 		E2BAE45717CE40DF001525ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45617CE40DF001525ED /* UIKit.framework */; };
 		E2BAE45917CE40DF001525ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45817CE40DF001525ED /* Foundation.framework */; };
 		E2BAE45B17CE40DF001525ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BAE45A17CE40DF001525ED /* CoreGraphics.framework */; };
@@ -83,6 +85,8 @@
 		E232C9FA17D4E83100DDF736 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = libs/AFNetworking/AFNetworking/AFXMLRequestOperation.m; sourceTree = SOURCE_ROOT; };
 		E232C9FB17D4E83100DDF736 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "libs/AFNetworking/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = SOURCE_ROOT; };
 		E232C9FC17D4E83100DDF736 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "libs/AFNetworking/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = SOURCE_ROOT; };
+		E2870DB517DF5DDC00BA31C4 /* LFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFUser.h; sourceTree = "<group>"; };
+		E2870DB617DF5DDC00BA31C4 /* LFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFUser.m; sourceTree = "<group>"; };
 		E2BAE45317CE40DF001525ED /* LFParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BAE45617CE40DF001525ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E2BAE45817CE40DF001525ED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -269,6 +273,8 @@
 				E2BAE4CB17CE7EE8001525ED /* LFObject.m */,
 				E2BAE4CC17CE7EE8001525ED /* LFQuery.h */,
 				E2BAE4CD17CE7EE8001525ED /* LFQuery.m */,
+				E2870DB517DF5DDC00BA31C4 /* LFUser.h */,
+				E2870DB617DF5DDC00BA31C4 /* LFUser.m */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -396,6 +402,7 @@
 				E232CA0A17D4E83100DDF736 /* AFURLConnectionOperation.m in Sources */,
 				E232CA0C17D4E83100DDF736 /* AFXMLRequestOperation.m in Sources */,
 				E232CA0E17D4E83100DDF736 /* UIImageView+AFNetworking.m in Sources */,
+				E2870DB817DF5DDC00BA31C4 /* LFUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +425,7 @@
 				E232CA0917D4E83100DDF736 /* AFURLConnectionOperation.m in Sources */,
 				E232CA0B17D4E83100DDF736 /* AFXMLRequestOperation.m in Sources */,
 				E232CA0D17D4E83100DDF736 /* UIImageView+AFNetworking.m in Sources */,
+				E2870DB717DF5DDC00BA31C4 /* LFUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
