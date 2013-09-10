@@ -17,6 +17,7 @@
 @property (nonatomic, copy) NSString *password;
 
 + (LFUser *)user;
++ (instancetype)currentUser;
 - (void)signUpInBackgroundWithBlock:(LFBooleanResultBlock)block;
 
 @end

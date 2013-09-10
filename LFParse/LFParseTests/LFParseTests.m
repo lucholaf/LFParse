@@ -276,6 +276,8 @@ static BOOL _initialized;
     user.password = @"what?is?this";
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         STAssertNil(error, nil);
+        STAssertNotNil([LFUser currentUser], nil);
+        STAssertNotNil([LFUser currentUser][@"sessionToken"], nil);
         
         END_TEST;
     }];

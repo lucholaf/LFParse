@@ -53,4 +53,7 @@ typedef void (^LFBooleanResultBlock)(BOOL succeeded, NSError *error);
 - (void)saveInBackgroundWithBlock:(LFBooleanResultBlock)block;
 - (void)deleteInBackgroundWithBlock:(LFBooleanResultBlock)block;
 
+// protected...
+- (void)fillWithCreationData:(NSDictionary *)dictionary;
+
 @end

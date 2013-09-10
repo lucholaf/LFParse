@@ -9,11 +9,28 @@
 #import "LFUser.h"
 #import "LFAPIClient.h"
 
+static LFUser *theCurrentUser;
+
 @implementation LFUser
 
 + (LFUser *)user
 {
     return (LFUser *)[self objectWithClassName:@"_User"];
+}
+
++ (instancetype)currentUser
+{
+    return theCurrentUser;
+}
+
+- (void)fillWithUserCreationData:(NSDictionary *)dictionary
+{
+    if (dictionary[@"sessionToken"]) _data[@"sessionToken"] = dictionary[@"sessionToken"];
+}
+
+- (void)setAsCurrentUser
+{
+    theCurrentUser = self;
 }
 
 - (void)signUpInBackgroundWithBlock:(LFBooleanResultBlock)block
@@ -25,7 +42,12 @@
     }
     
     void (^successBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id response) {
+        [self fillWithCreationData:response];
+
+        [self fillWithUserCreationData:response];
         
+        [self setAsCurrentUser];
+
         if (block)
             block(YES, nil);
     };
