@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class LFACL;
+
 typedef void (^LFBooleanResultBlock)(BOOL succeeded, NSError *error);
 
 @interface LFObject : NSObject
@@ -32,6 +34,7 @@ typedef void (^LFBooleanResultBlock)(BOOL succeeded, NSError *error);
  */
 @property (nonatomic, retain, readonly) NSDate *createdAt;
 
+@property (nonatomic, retain) LFACL *ACL;
 
 @property (readonly) NSString *className;
 

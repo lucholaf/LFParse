@@ -10,6 +10,7 @@
 #import "LFObject.h"
 #import "LFQuery.h"
 #import "LFUser.h"
+#import "LFACL.h"
 
 @interface LFBackend : NSObject
 {

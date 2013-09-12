@@ -71,7 +71,7 @@ static BOOL _initialized;
 
 - (void)clearTestObjects
 {
-    [self clearObjects:@[@"TestObject", @"TestLinkedObject"]];
+    [self clearObjects:@[@"TestObject", @"TestLinkedObject", @"TestACLObject"]];
 }
 
 - (void)setUp
@@ -277,6 +277,24 @@ static BOOL _initialized;
     }];
     
     WAIT_TEST;
+}
+
+- (void)testObjectWithACL
+{
+    LFUser *user = [LFUser user];
+    user.username = $(@"testUser%@", [self createNewUdid]);
+    user.password = @"what?is?this";
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        STAssertNil(error, nil);
+        STAssertNotNil([LFUser currentUser], nil);
+        STAssertNotNil([LFUser currentUser][@"sessionToken"], nil);
+        
+        LFObject *obj = [LFObject objectWithClassName:@"TestACLObject"];
+        obj.ACL = [LFACL ACLWithUser:[LFUser currentUser]];
+        [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            STAssertNil(error, nil);
+        }];
+    }];
 }
 
 @end

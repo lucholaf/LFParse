@@ -58,6 +58,8 @@
 		E2BAE4CF17CE7EE8001525ED /* LFBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4C917CE7EE8001525ED /* LFBackend.m */; };
 		E2BAE4D017CE7EE8001525ED /* LFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4CB17CE7EE8001525ED /* LFObject.m */; };
 		E2BAE4D117CE7EE8001525ED /* LFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BAE4CD17CE7EE8001525ED /* LFQuery.m */; };
+		E2C2A09217E2360D0070708F /* LFACL.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2A09117E2360D0070708F /* LFACL.m */; };
+		E2C2A09317E2360D0070708F /* LFACL.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2A09117E2360D0070708F /* LFACL.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +117,8 @@
 		E2BAE4CB17CE7EE8001525ED /* LFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFObject.m; sourceTree = "<group>"; };
 		E2BAE4CC17CE7EE8001525ED /* LFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFQuery.h; sourceTree = "<group>"; };
 		E2BAE4CD17CE7EE8001525ED /* LFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFQuery.m; sourceTree = "<group>"; };
+		E2C2A09017E2360D0070708F /* LFACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFACL.h; sourceTree = "<group>"; };
+		E2C2A09117E2360D0070708F /* LFACL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFACL.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +283,8 @@
 				E2BAE4CD17CE7EE8001525ED /* LFQuery.m */,
 				E2870DB517DF5DDC00BA31C4 /* LFUser.h */,
 				E2870DB617DF5DDC00BA31C4 /* LFUser.m */,
+				E2C2A09017E2360D0070708F /* LFACL.h */,
+				E2C2A09117E2360D0070708F /* LFACL.m */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -407,6 +413,7 @@
 				E232CA0C17D4E83100DDF736 /* AFXMLRequestOperation.m in Sources */,
 				E232CA0E17D4E83100DDF736 /* UIImageView+AFNetworking.m in Sources */,
 				E2870DB817DF5DDC00BA31C4 /* LFUser.m in Sources */,
+				E2C2A09317E2360D0070708F /* LFACL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +437,7 @@
 				E232CA0B17D4E83100DDF736 /* AFXMLRequestOperation.m in Sources */,
 				E232CA0D17D4E83100DDF736 /* UIImageView+AFNetworking.m in Sources */,
 				E2870DB717DF5DDC00BA31C4 /* LFUser.m in Sources */,
+				E2C2A09217E2360D0070708F /* LFACL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

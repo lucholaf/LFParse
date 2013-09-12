@@ -8,6 +8,7 @@
 
 #import "LFObject.h"
 #import "LFAPIClient.h"
+#import "LFACL.h"
 
 @interface LFObject()
 {
@@ -126,6 +127,13 @@
 - (void)setObject:(id)object forKey:(NSString *)key
 {
     self[key] = object;
+}
+
+- (void)setACL:(LFACL *)ACL
+{
+    _ACL = ACL;
+    
+    _data[@"ACL"] = [_ACL dictRepresentation];
 }
 
 - (void)deleteInBackgroundWithBlock:(LFBooleanResultBlock)block
