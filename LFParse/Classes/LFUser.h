@@ -8,6 +8,10 @@
 
 #import "LFObject.h"
 
+@class LFUser;
+
+typedef void (^LFUserResultBlock)(LFUser *user, NSError *error);
+
 @interface LFUser : LFObject
 {
     
@@ -18,6 +22,7 @@
 
 + (LFUser *)user;
 + (instancetype)currentUser;
++ (void)logInWithUsernameInBackground:(NSString *)username password:(NSString *)password block:(LFUserResultBlock)block;
 - (void)signUpInBackgroundWithBlock:(LFBooleanResultBlock)block;
 
 @end

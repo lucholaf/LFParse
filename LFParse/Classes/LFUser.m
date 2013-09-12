@@ -64,6 +64,34 @@ static LFUser *theCurrentUser;
                                    failure:failBlock];
 }
 
++ (void)logInWithUsernameInBackground:(NSString *)username password:(NSString *)password block:(LFUserResultBlock)block
+{
+    void (^successBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id response) {
+        LFUser *user = [LFUser user];
+        
+        [user fillWithCreationData:response];
+        
+        [user fillWithUserCreationData:response];
+        
+        [user setAsCurrentUser];
+        
+        if (block)
+            block(user, nil);
+    };
+    
+    void (^failBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block)
+            block(nil, error);
+    };
+    
+    [[LFAPIClient sharedInstance] setParameterEncoding:AFJSONParameterEncoding];
+    
+    [[LFAPIClient sharedInstance] getPath:$(@"login") parameters:@{@"username":username, @"password":password}
+                                   success:successBlock
+                                   failure:failBlock];
+    
+}
+
 - (NSString *)username
 {
     return _data[@"username"];

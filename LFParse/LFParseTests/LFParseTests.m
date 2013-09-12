@@ -103,20 +103,6 @@ static BOOL _initialized;
     }];
 
     WAIT_TEST;
-    
-//    LFQuery *query = [LFQuery queryWithClassName:@"TestObject"];
-//    [query whereKey:@"someKey1" equalTo:@"1"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        LFObject *test = objects[0];
-//
-//        LFQuery *linkedQuery = [LFQuery queryWithClassName:@"TestLinkedObject"];
-//        [linkedQuery whereKey:@"createAt" lessThan:test.createdAt];
-//        [linkedQuery whereKey:@"rel" equalTo:test];
-//        [linkedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//            NSLog(@"object fetched %@", objects[0]);
-//        }];
-//        
-//    }];
 }
 
 - (void)testCreateLinked
@@ -279,7 +265,15 @@ static BOOL _initialized;
         STAssertNotNil([LFUser currentUser], nil);
         STAssertNotNil([LFUser currentUser][@"sessionToken"], nil);
         
-        END_TEST;
+        // check login
+        [LFUser logInWithUsernameInBackground:user.username password:user.password block:^(LFUser *loggedUser, NSError *error) {
+            STAssertNil(error, nil);
+            STAssertNotNil([LFUser currentUser], nil);
+            STAssertNotNil([LFUser currentUser][@"sessionToken"], nil);
+            STAssertEquals([LFUser currentUser][@"sessionToken"], loggedUser[@"sessionToken"], nil);
+            
+            END_TEST;
+        }];
     }];
     
     WAIT_TEST;
