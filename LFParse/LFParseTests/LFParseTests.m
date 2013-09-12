@@ -71,7 +71,7 @@ static BOOL _initialized;
 
 - (void)clearTestObjects
 {
-    [self clearObjects:@[@"TestObject", @"TestLinkedObject", @"TestACLObject"]];
+    [self clearObjects:@[@"TestObject", @"TestLinkedObject"]];
 }
 
 - (void)setUp
@@ -281,6 +281,10 @@ static BOOL _initialized;
 
 - (void)testObjectWithACL
 {
+    START_TEST;
+    
+    [self clearTestObjects];
+
     LFUser *user = [LFUser user];
     user.username = $(@"testUser%@", [self createNewUdid]);
     user.password = @"what?is?this";
@@ -293,8 +297,17 @@ static BOOL _initialized;
         obj.ACL = [LFACL ACLWithUser:[LFUser currentUser]];
         [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             STAssertNil(error, nil);
+            
+            LFQuery *query = [LFQuery queryWithClassName:@"TestACLObject"];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                STAssertTrue([objects count] == 1, nil); // we make sure it was retrieved (user is the only one who has access)
+                
+                END_TEST;
+            }];
         }];
     }];
+    
+    WAIT_TEST;
 }
 
 @end

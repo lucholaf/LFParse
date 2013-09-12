@@ -35,4 +35,15 @@
     return self;
 }
 
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method
+                                      path:(NSString *)path
+                                parameters:(NSDictionary *)parameters
+{
+    if ([LFUser currentUser] && [LFUser currentUser][@"sessionToken"])
+        [self setDefaultHeader:@"X-Parse-Session-Token" value:[LFUser currentUser][@"sessionToken"]];
+    
+    return [super requestWithMethod:method path:path parameters:parameters];
+}
+
+
 @end
